@@ -11,8 +11,8 @@ RUN native-image  \
     --enable-http  \
     --enable-https  \
     --static \
-    -jar target/**/$name;format="norm"$.jar
+    -jar target/**/$name;format="camel"$.jar
 
 FROM scratch
-COPY --from=sbt-graalvm /app/$name;format="norm"$ /app/$name;format="norm"$
-ENTRYPOINT ["/app/$name;format="norm"$", "-Xmx512m"]
+COPY --from=sbt-graalvm /app/$name;format="camel"$ /app/$name;format="camel"$
+ENTRYPOINT ["/app/$name;format="camel"$", "-Xmx512m"]

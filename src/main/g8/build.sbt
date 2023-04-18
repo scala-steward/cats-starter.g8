@@ -33,8 +33,7 @@ lazy val root = (project in file("."))
       new TestFramework("munit.Framework"),
       new TestFramework("weaver.framework.CatsEffect")
     ),
-    assembly / mainClass := Some("$organization$.$name;format="norm"$.$name;format="Camel"$"),
-    assembly / assemblyJarName := "$name;format="norm"$.jar",
+    assembly / assemblyJarName := "$name;format="camel"$.jar",
     assemblyMergeStrategy := {
       case PathList("META-INF", "MANIFEST.MF")  => MergeStrategy.discard
       case x if x.endsWith("module-info.class") => MergeStrategy.discard

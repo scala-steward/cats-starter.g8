@@ -1,14 +1,27 @@
-# G8 Cats/CE3/GraalVM template
+# Sbt Cats/GraalVM template
 
-A [Giter8][g8] template to bootstrap a Cats/CE3 project using Scala 2.13. 
-A Dockerfile is provided to build a native image with GraalVM with a memory limit (-Xmx512m)
-for demonstration purposes.
+A [Giter8][g8] template to bootstrap a Cats/CE3 project that can be compiled to a native image with Docker,
+along with some other useful addons such as Scalafix and Scalafmt rules.
 
-If running Docker on Mac/Windows, you may need at least 6GB of memory allocated to Docker
-for the native image to build successfully.
+## Usage
 
-A few other addons are provided, such as Scalafix and Scalafmt rules and
-some commonly used Scala libraries/plugins.
+Create a new project:
+```bash
+sbt new rzqx/cats.g8
+```
+
+Build a native image and then run it with Docker:
+
+```bash
+docker build -t cats .
+docker run --rm cats
+```
+
+As of latest testing, at least ~6GB of memory is required to build the native image. For example, if
+running Docker on MacOS, you'll need to allocate at least ~6GB of memory to the Docker VM.
+
+Finally, the Dockerfile provided applies a memory limit of 512MB (`-Xmx512m`) to the native image, which exists
+purely for demonstration purposes.
 
 ## Template license
 Written in 2023 by rzqx <rzqx@pm.me>.

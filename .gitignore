@@ -2,3 +2,5 @@
 /**/target/
 .bsp/
 .idea/
+.bloop/
+.metals/

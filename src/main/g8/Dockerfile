@@ -1,4 +1,4 @@
-FROM sbtscala/scala-sbt:graalvm-ce-22.3.0-b2-java17_1.8.2_2.13.10 as sbt-graalvm
+FROM sbtscala/scala-sbt:graalvm-ce-22.3.0-b2-java17_1.9.2_3.3.0 as sbt-graalvm
 WORKDIR /app
 COPY . .
 
@@ -15,4 +15,4 @@ RUN native-image  \
 
 FROM scratch
 COPY --from=sbt-graalvm /app/$name;format="camel"$ /app/$name;format="camel"$
-ENTRYPOINT ["/app/$name;format="camel"$", "-Xmx512m"]
+ENTRYPOINT ["/app/$name;format="camel"$"]

@@ -1,18 +1,31 @@
-FROM sbtscala/scala-sbt:graalvm-ce-22.3.0-b2-java17_1.9.2_3.3.0 as sbt-graalvm
-WORKDIR /app
-COPY . .
+FROM eclipse-temurin:20 as coursier
+WORKDIR /coursier
 
-ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
+RUN curl -fLo coursier https://github.com/coursier/launchers/raw/master/coursier && \
+    chmod +x coursier && \
+    ./coursier setup -y
+
+ENV PATH="/root/.local/share/coursier/bin:\${PATH}"
+
+FROM coursier as sbt
+WORKDIR /scratch
+
+COPY . .
 RUN sbt assembly
 
-RUN gu install native-image
+FROM ghcr.io/graalvm/native-image:22 as builder
+WORKDIR /scratch
+COPY --from=sbt /scratch/target/**/app.jar .
+
 RUN native-image  \
     --no-fallback  \
     --enable-http  \
     --enable-https  \
     --static \
-    -jar target/**/$name;format="camel"$.jar
+    -jar app.jar
 
-FROM scratch
-COPY --from=sbt-graalvm /app/$name;format="camel"$ /app/$name;format="camel"$
-ENTRYPOINT ["/app/$name;format="camel"$"]
+FROM scratch as runner
+WORKDIR /app
+COPY --from=builder /scratch/app .
+
+ENTRYPOINT ["/app/app"]

@@ -1,32 +1,48 @@
-val CatsVersion = "2.9.0"
-val CatsEffectVersion = "3.5.1"
+val CatsVersion              = "2.9.0"
+val CatsEffectVersion        = "3.5.1"
 val CatsEffectTestKitVersion = "3.5.1"
-val Fs2Version = "3.7.0"
-val Log4CatsVersion = "2.6.0"
-val MunitVersion = "0.7.29"
-val MunitCatsEffectVersion = "1.0.7"
-val WeaverCatsVersion = "0.8.3"
-val LogbackVersion = "1.4.8"
+val CirceVersion             = "0.14.5"
+val CirceFs2Version          = "0.14.1"
+val CirceConfigVersion       = "0.10.0"
+val Fs2Version               = "3.8.0"
+val Http4sVersion            = "0.23.23"
+val Log4CatsVersion          = "2.6.0"
+val LogbackVersion           = "1.4.9"
+val MunitVersion             = "0.7.29"
+val MunitCatsEffectVersion   = "1.0.7"
+val WeaverCatsVersion        = "0.8.3"
 
 ThisBuild / organization := "$organization$"
 ThisBuild / scalaVersion := "$scala_version$"
-ThisBuild / semanticdbEnabled := true
-ThisBuild / semanticdbVersion := scalafixSemanticdb.revision
 
 lazy val root = (project in file("."))
   .settings(
-    name := "$name;format="norm"$",
+    name    := "$name$",
     version := "0.1.0-SNAPSHOT",
     libraryDependencies ++= Seq(
-      "org.typelevel"              %% "cats-core"                 % CatsVersion,
-      "org.typelevel"              %% "cats-effect"               % CatsEffectVersion,
-      "co.fs2"                     %% "fs2-core"                  % Fs2Version,
-      "org.typelevel"              %% "log4cats-slf4j"            % Log4CatsVersion,
-      "ch.qos.logback"              % "logback-classic"           % LogbackVersion                 % Runtime,
-      "org.scalameta"              %% "munit"                     % MunitVersion                   % Test,
-      "com.disneystreaming"        %% "weaver-cats"               % WeaverCatsVersion              % Test,
-      "org.typelevel"              %% "munit-cats-effect-3"       % MunitCatsEffectVersion         % Test,
-      "org.typelevel"              %% "cats-effect-testkit"       % CatsEffectTestKitVersion       % Test
+      "org.typelevel"       %% "cats-core"           % CatsVersion,
+      "org.typelevel"       %% "cats-effect"         % CatsEffectVersion,
+      "co.fs2"              %% "fs2-core"            % Fs2Version,
+      "co.fs2"              %% "fs2-io"              % Fs2Version,
+      "io.circe"            %% "circe-core"          % CirceVersion,
+      "io.circe"            %% "circe-generic"       % CirceVersion,
+      "io.circe"            %% "circe-parser"        % CirceVersion,
+      "io.circe"            %% "circe-literal"       % CirceVersion,
+      "io.circe"            %% "circe-fs2"           % CirceFs2Version,
+      "io.circe"            %% "circe-config"        % CirceConfigVersion,
+      "org.http4s"          %% "http4s-ember-client" % Http4sVersion,
+      "org.http4s"          %% "http4s-ember-server" % Http4sVersion,
+      "org.http4s"          %% "http4s-dsl"          % Http4sVersion,
+      "org.http4s"          %% "http4s-core"         % Http4sVersion,
+      "org.http4s"          %% "http4s-client"       % Http4sVersion,
+      "org.http4s"          %% "http4s-server"       % Http4sVersion,
+      "org.http4s"          %% "http4s-circe"        % Http4sVersion,
+      "org.typelevel"       %% "log4cats-slf4j"      % Log4CatsVersion,
+      "ch.qos.logback"       % "logback-classic"     % LogbackVersion           % Runtime,
+      "org.scalameta"       %% "munit"               % MunitVersion             % Test,
+      "org.typelevel"       %% "munit-cats-effect-3" % MunitCatsEffectVersion   % Test,
+      "com.disneystreaming" %% "weaver-cats"         % WeaverCatsVersion        % Test,
+      "org.typelevel"       %% "cats-effect-testkit" % CatsEffectTestKitVersion % Test
     ),
     scalacOptions ++= Seq(
       "-encoding",
@@ -35,8 +51,8 @@ lazy val root = (project in file("."))
       "-unchecked",
       "-deprecation",
       "-Wunused:all",
-      "-Werror",
       "-Wvalue-discard",
+      "-Werror",
       "-no-indent",
       "-explain"
     ),
@@ -44,10 +60,10 @@ lazy val root = (project in file("."))
       new TestFramework("munit.Framework"),
       new TestFramework("weaver.framework.CatsEffect")
     ),
-    assembly / assemblyJarName := "$name;format="camel"$.jar",
+    assembly / assemblyJarName := "app.jar",
     assemblyMergeStrategy := {
       case PathList("META-INF", "MANIFEST.MF")  => MergeStrategy.discard
       case x if x.endsWith("module-info.class") => MergeStrategy.discard
       case x                                    => assemblyMergeStrategy.value(x)
-    },
+    }
   )

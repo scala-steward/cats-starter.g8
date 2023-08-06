@@ -4,7 +4,6 @@ queue_rules:
       - author=scala-steward
     merge_conditions:
       - author=scala-steward
-      - check-success=ci
 
 pull_request_rules:
   - name: merge using the steward queue

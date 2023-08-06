@@ -1,14 +1,14 @@
-# Sbt Cats/GraalVM template
+# Sbt Cats/GraalVM Starter
 
 A [Giter8][g8] template to bootstrap a Scala 3 Cats/CE3 project that can be compiled to a native image with Docker,
-along with some other useful addons such as Scalafix and Scalafmt rules.
+alongside some useful addons and common dependencies.
 
 ## Usage
 
 Create a new project:
 
 ```bash
-sbt new rzqx/cats.g8
+sbt new lowmelvin/cats-starter.g8
 ```
 
 Build a native image and then run it with Docker:
@@ -20,7 +20,7 @@ docker run --rm cats
 
 ## Template license
 
-Written in 2023 by rzqx <rzqx@pm.me>.
+Written in 2023 by Melvin Low <me@melvinlow.com>.
 
 To the extent possible under law, the author(s) have dedicated all copyright and related
 and neighboring rights to this template to the public domain worldwide.

@@ -10,7 +10,7 @@ val Log4CatsVersion          = "2.6.0"
 val LogbackVersion           = "1.4.14"
 val MunitVersion             = "0.7.29"
 val MunitCatsEffectVersion   = "1.0.7"
-val WeaverCatsVersion        = "0.8.3"
+val WeaverCatsVersion        = "0.8.4"
 
 lazy val root = (project in file("."))
   .enablePlugins(ScriptedPlugin)

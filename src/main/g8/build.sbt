@@ -9,7 +9,7 @@ val Http4sVersion            = "0.23.27"
 val Log4CatsVersion          = "2.7.0"
 val LogbackVersion           = "1.5.6"
 val MunitVersion             = "1.0.0"
-val MunitCatsEffectVersion   = "1.0.7"
+val MunitCatsEffectVersion   = "2.0.0"
 val WeaverCatsVersion        = "0.8.4"
 
 ThisBuild / organization := "$organization$"
@@ -40,7 +40,7 @@ lazy val root = (project in file("."))
       "org.typelevel"       %% "log4cats-slf4j"      % Log4CatsVersion,
       "ch.qos.logback"       % "logback-classic"     % LogbackVersion           % Runtime,
       "org.scalameta"       %% "munit"               % MunitVersion             % Test,
-      "org.typelevel"       %% "munit-cats-effect-3" % MunitCatsEffectVersion   % Test,
+      "org.typelevel"       %% "munit-cats-effect"   % MunitCatsEffectVersion   % Test,
       "com.disneystreaming" %% "weaver-cats"         % WeaverCatsVersion        % Test,
       "org.typelevel"       %% "cats-effect-testkit" % CatsEffectTestKitVersion % Test
     ),

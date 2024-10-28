@@ -1,5 +1,5 @@
 val CatsVersion              = "2.12.0"
-val CatsEffectVersion        = "3.5.4"
+val CatsEffectVersion        = "3.5.5"
 val CatsEffectTestKitVersion = "3.5.4"
 val CirceVersion             = "0.14.10"
 val CirceFs2Version          = "0.14.1"

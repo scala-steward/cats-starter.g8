@@ -9,7 +9,7 @@ val Http4sVersion            = "0.23.30"
 val Log4CatsVersion          = "2.7.0"
 val LogbackVersion           = "1.5.18"
 val MunitVersion             = "1.1.0"
-val MunitCatsEffectVersion   = "2.0.0"
+val MunitCatsEffectVersion   = "2.1.0"
 val WeaverCatsVersion        = "0.8.4"
 
 ThisBuild / organization := "$organization$"

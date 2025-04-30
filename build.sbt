@@ -8,7 +8,7 @@ val Fs2Version               = "3.12.0"
 val Http4sVersion            = "0.23.30"
 val Log4CatsVersion          = "2.7.0"
 val LogbackVersion           = "1.5.18"
-val MunitVersion             = "1.1.0"
+val MunitVersion             = "1.1.1"
 val MunitCatsEffectVersion   = "2.1.0"
 val WeaverCatsVersion        = "0.8.4"
 

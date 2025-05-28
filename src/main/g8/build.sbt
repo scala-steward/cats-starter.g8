@@ -10,7 +10,7 @@ val Log4CatsVersion          = "2.7.1"
 val LogbackVersion           = "1.5.18"
 val MunitVersion             = "1.1.1"
 val MunitCatsEffectVersion   = "2.1.0"
-val WeaverCatsVersion        = "0.8.4"
+val WeaverCatsVersion        = "0.9.0"
 
 ThisBuild / organization := "$organization$"
 ThisBuild / scalaVersion := "$scala_version$"
@@ -20,29 +20,29 @@ lazy val root = (project in file("."))
     name    := "$name$",
     version := "0.1.0-SNAPSHOT",
     libraryDependencies ++= Seq(
-      "org.typelevel"       %% "cats-core"           % CatsVersion,
-      "org.typelevel"       %% "cats-effect"         % CatsEffectVersion,
-      "co.fs2"              %% "fs2-core"            % Fs2Version,
-      "co.fs2"              %% "fs2-io"              % Fs2Version,
-      "io.circe"            %% "circe-core"          % CirceVersion,
-      "io.circe"            %% "circe-generic"       % CirceVersion,
-      "io.circe"            %% "circe-parser"        % CirceVersion,
-      "io.circe"            %% "circe-literal"       % CirceVersion,
-      "io.circe"            %% "circe-fs2"           % CirceFs2Version,
-      "io.circe"            %% "circe-config"        % CirceConfigVersion,
-      "org.http4s"          %% "http4s-ember-client" % Http4sVersion,
-      "org.http4s"          %% "http4s-ember-server" % Http4sVersion,
-      "org.http4s"          %% "http4s-dsl"          % Http4sVersion,
-      "org.http4s"          %% "http4s-core"         % Http4sVersion,
-      "org.http4s"          %% "http4s-client"       % Http4sVersion,
-      "org.http4s"          %% "http4s-server"       % Http4sVersion,
-      "org.http4s"          %% "http4s-circe"        % Http4sVersion,
-      "org.typelevel"       %% "log4cats-slf4j"      % Log4CatsVersion,
-      "ch.qos.logback"       % "logback-classic"     % LogbackVersion           % Runtime,
-      "org.scalameta"       %% "munit"               % MunitVersion             % Test,
-      "org.typelevel"       %% "munit-cats-effect"   % MunitCatsEffectVersion   % Test,
-      "com.disneystreaming" %% "weaver-cats"         % WeaverCatsVersion        % Test,
-      "org.typelevel"       %% "cats-effect-testkit" % CatsEffectTestKitVersion % Test
+      "org.typelevel" %% "cats-core"           % CatsVersion,
+      "org.typelevel" %% "cats-effect"         % CatsEffectVersion,
+      "co.fs2"        %% "fs2-core"            % Fs2Version,
+      "co.fs2"        %% "fs2-io"              % Fs2Version,
+      "io.circe"      %% "circe-core"          % CirceVersion,
+      "io.circe"      %% "circe-generic"       % CirceVersion,
+      "io.circe"      %% "circe-parser"        % CirceVersion,
+      "io.circe"      %% "circe-literal"       % CirceVersion,
+      "io.circe"      %% "circe-fs2"           % CirceFs2Version,
+      "io.circe"      %% "circe-config"        % CirceConfigVersion,
+      "org.http4s"    %% "http4s-ember-client" % Http4sVersion,
+      "org.http4s"    %% "http4s-ember-server" % Http4sVersion,
+      "org.http4s"    %% "http4s-dsl"          % Http4sVersion,
+      "org.http4s"    %% "http4s-core"         % Http4sVersion,
+      "org.http4s"    %% "http4s-client"       % Http4sVersion,
+      "org.http4s"    %% "http4s-server"       % Http4sVersion,
+      "org.http4s"    %% "http4s-circe"        % Http4sVersion,
+      "org.typelevel" %% "log4cats-slf4j"      % Log4CatsVersion,
+      "ch.qos.logback" % "logback-classic"     % LogbackVersion           % Runtime,
+      "org.scalameta" %% "munit"               % MunitVersion             % Test,
+      "org.typelevel" %% "munit-cats-effect"   % MunitCatsEffectVersion   % Test,
+      "org.typelevel" %% "weaver-cats"         % WeaverCatsVersion        % Test,
+      "org.typelevel" %% "cats-effect-testkit" % CatsEffectTestKitVersion % Test
     ),
     scalacOptions ++= Seq(
       "-encoding",

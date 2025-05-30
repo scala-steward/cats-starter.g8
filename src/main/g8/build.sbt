@@ -61,7 +61,7 @@ lazy val root = (project in file("."))
       new TestFramework("weaver.framework.CatsEffect")
     ),
     assembly / assemblyJarName := "app.jar",
-    assemblyMergeStrategy := {
+    assemblyMergeStrategy      := {
       case PathList("META-INF", "MANIFEST.MF")  => MergeStrategy.discard
       case x if x.endsWith("module-info.class") => MergeStrategy.discard
       case x                                    => assemblyMergeStrategy.value(x)

@@ -10,7 +10,7 @@ val Log4CatsVersion          = "2.7.1"
 val LogbackVersion           = "1.5.18"
 val MunitVersion             = "1.1.1"
 val MunitCatsEffectVersion   = "2.1.0"
-val WeaverCatsVersion        = "0.9.0"
+val WeaverCatsVersion        = "0.9.1"
 
 ThisBuild / organization := "$organization$"
 ThisBuild / scalaVersion := "$scala_version$"
